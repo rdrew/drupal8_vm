@@ -1,0 +1,6 @@
+.git
+.gitignore
+drush
+web/sites/development.services.yml
+web/sites/services.yml
+web/sites/default/settings.php

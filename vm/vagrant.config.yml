@@ -1,0 +1,70 @@
+---
+# Local Vagrant options.
+vagrant_hostname: __remotesitename__.local
+vagrant_machine_name: __remotesitename__
+vagrant_ip: 192.168.88.22
+
+# Configure the synced folder.
+vagrant_synced_folders:
+  - local_path: .
+    destination: /var/www/drupal
+    type: nfs
+
+# Undo some of the extra-hardened security settings in config.yml.
+drupal_account_pass: admin
+drupal_db_password: drupal
+mysql_root_password: root
+
+php_sendmail_path: "/opt/mailhog/mhsendmail"
+installed_extras:
+  - adminer
+  # - blackfire
+  - drupalconsole
+  - drush
+  # - elasticsearch
+  # - java
+  #- mailhog
+  # - memcached
+  # - newrelic
+  - nodejs
+  #- pimpmylog
+  # - redis
+  # - ruby
+  # - selenium
+  # - solr
+  # - tideways
+  # - upload-progress
+  #- varnish
+  # - xdebug
+  # - xhprof
+
+
+# Node.js configuration (if enabled above).
+# Valid examples: "0.10", "0.12", "4.x", "5.x", "6.x".
+nodejs_version: "6.x"
+nodejs_npm_global_packages: []
+nodejs_install_npm_user: "{{ drupalvm_user }}"
+npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
+
+
+
+dashboard_install_dir: /var/www/dashboard
+extra_security_enabled: false
+
+firewall_allowed_tcp_ports:
+  - "22"
+  - "25"
+  - "80"
+  - "81"
+  - "443"
+  - "8025"
+firewall_log_dropped_packets: false
+
+# Set Apache to listen on port 80, and Varnish on 81.
+apache_listen_port: "80"
+varnish_listen_port: "81"
+varnish_default_backend_port: "80"
+
+# Increase the memory available to your Drupal site.
+#vagrant_memory: 1536
+php_memory_limit: "512M"
