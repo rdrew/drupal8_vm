@@ -1,5 +1,5 @@
 1. pull down my repo
-git clone https://github.com/rdrew/robs_d8_vm.git __remotesitename__
+git clone https://github.com/rdrew/drupal8_vm.git __remotesitename__
 
 2. edit the Vagrant file and the drush alias file
 grep -rl __remotesitename__ . | xargs sed -i '' -e 's/__remotesitename__/**changeme**/'
