@@ -6,13 +6,13 @@
 
 $aliases['local'] = array(
   'root' => '/var/www/drupal/web',
-  'uri' => '__remotesitename__.local',
+  'uri' => 'remotesitename.local',
 );
 
 $aliases['remote'] = array(
-  'root' => '/var/www/html/__remotesitename__/web',
-  'uri' => 'http://__remotesitename__.discoveryspace.ca',
-  'remote-host' => '__remotesitename__.discoveryspace.ca',
+  'root' => '/var/www/html/remotesitename/web',
+  'uri' => 'http://remotesitename.discoveryspace.ca',
+  'remote-host' => 'remotesitename.discoveryspace.ca',
   'remote-user' => 'rdrew',
   'ssh-options' => "-p 22"
 );
