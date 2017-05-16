@@ -1,10 +1,28 @@
 #
 # My first shell script
 #
-
 #Get the  project name
 echo "Directory name of the remote site:"
 read siteName
+
+echo "Would you like to set up a remote rsa key? (y/n) \c"
+read choice
+
+case "$choice" in
+
+    y)
+        # Do Stuff
+      echo "What is the sites IP?"
+      read ip
+      ssh-copy-id $ip
+        ;;
+    n)
+        # Do different stuff
+        ;;
+    *)
+        echo "$choice is not a valid choice"
+        ;;
+esac
 
 #Insert the namein some relavent locations
 echo "Adding site aliases"
@@ -26,7 +44,7 @@ vagrant up
 echo "done"
 
 #pull down the remote codebase without the db configs
-echo: "pulling down the remote site codebase"
+echo "pulling down the remote site codebase"
 rsync -avz --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/$siteName/ .
 echo "done"
 
