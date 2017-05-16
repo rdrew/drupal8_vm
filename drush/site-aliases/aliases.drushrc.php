@@ -6,7 +6,10 @@
 
 $aliases['local'] = array(
   'root' => '/var/www/drupal/web',
-  'uri' => 'remotesitename.local',
+  'uri' => 'http://remotesitename.local',
+  'remote-host' => 'remotesitename.local',
+  'remote-user' => 'vagrant',
+  'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
 );
 
 $aliases['remote'] = array(
