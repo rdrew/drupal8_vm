@@ -7,24 +7,47 @@ echo "Directory name of the remote site:"
 read siteName
 
 #Insert the namein some relavent locations
+echo "Adding site aliases"
 grep -rl remotesitename ./drush | xargs sed -i '' -e "s/remotesitename/$siteName/"
+echo "done"
+
+echo "editing vagrant config"
 grep -rl remotesitename ./vm | xargs sed -i '' -e "s/remotesitename/$siteName/"
+echo "done"
 
 #set up clean codebase 
+echo "Empty site set up"
 composer install
+echo "done"
 
 #set up vm and db
+echo "setting up VM"
 vagrant up
+echo "done"
 
 #pull down the remote codebase without the db configs
+echo: "pulling down the remote site codebase"
 rsync -avz --dry-run --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/$siteName/ .
+echo "done"
 
 #rerun composer to get remote dependancies
+echo "rerun composer install to grab remote sites modules etc"
 composer install
+echo "done"
 
 #make sure the vm is included
+echo "make sure the vm is a composer dev dependancy"
 composer require --dev geerlingguy/drupal-vm
+echo "done"
 
-#drush sql-sync @remote @local
-#drush updb @local
-#drush cr @local
+echo "syncing the databases"
+./drush.wrapper sql-sync @remote @local
+echo "done"
+
+echo "update the db"
+./drush.wrapper updb @local
+echo "done"
+
+echo "clear the drupal cache"
+./drush.wrapper cr @local
+echo "done"
