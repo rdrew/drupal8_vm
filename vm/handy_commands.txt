@@ -1,18 +1,18 @@
 1. pull down my repo
-git clone https://github.com/rdrew/robs_d8_vm.git __remotesitename__
+git clone https://github.com/rdrew/robs_d8_vm.git remotesitename
 
 2. edit the Vagrant file and the drush alias file
-grep -rl __remotesitename__ . | xargs sed -i '' -e 's/__remotesitename__/**changeme**/'
+grep -rl remotesitename . | xargs sed -i '' -e 's/remotesitename/**changeme**/'
 
 3. run "Vagrant up"
 
-4. check __remotesitename__.local to confirm
+4. check remotesitename.local to confirm
 
 // just the files dir
-rsync -avz --progress rdrew@137.149.200.22:/var/www/html/__remotesitename__/web/sites/default/files sites/default/files/	
+rsync -avz --progress rdrew@137.149.200.22:/var/www/html/remotesitename/web/sites/default/files sites/default/files/	
 
 // full code base with exlusions (see vm/rsync_config.txt)
-rsync -avz --dry-run --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/__remotesitename__/ .
+rsync -avz --dry-run --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/remotesitename/ .
 
 5. pull down remote database
 drush sql-sync @remote @local
