@@ -1,0 +1,7 @@
+#
+# My first shell script
+#
+echo "Directory name of the remote site:"
+read siteName
+grep -rl remotesitename ./drush | xargs sed -i '' -e "s/remotesitename/$siteName/"
+grep -rl remotesitename ./vm | xargs sed -i '' -e "s/remotesitename/$siteName/"
