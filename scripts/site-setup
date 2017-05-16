@@ -27,7 +27,7 @@ echo "done"
 
 #pull down the remote codebase without the db configs
 echo: "pulling down the remote site codebase"
-rsync -avz --dry-run --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/$siteName/ .
+rsync -avz --progress --exclude-from 'vm/rsync_config.txt' rdrew@137.149.200.22:/var/www/html/$siteName/ .
 echo "done"
 
 #rerun composer to get remote dependancies
