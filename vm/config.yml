@@ -5,7 +5,7 @@ drupal_build_composer: false
 drupal_composer_dependencies: []
 
 # Drupal install settings.
-drupal_site_name: "D8 Development VM"
+drupal_site_name: "remotesitename"
 
 drupal_core_path: "/var/www/drupal/web"
 drupal_install_site: true

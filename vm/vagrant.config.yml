@@ -1,7 +1,7 @@
 ---
 # Local Vagrant options.
-vagrant_hostname: __remotesitename__.local
-vagrant_machine_name: __remotesitename__
+vagrant_hostname: remotesitename
+vagrant_machine_name: remotesitename
 vagrant_ip: 192.168.88.22
 
 # Configure the synced folder.
