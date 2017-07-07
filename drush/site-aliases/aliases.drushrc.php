@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Drush Aliases for Example.com.
+ * Drush Aliases for remotesitename
  */
 
 $aliases['local'] = array(
   'root' => '/var/www/drupal/web',
-  'uri' => 'http://remotesitename.local',
-  'remote-host' => 'remotesitename.local',
+  'uri' => 'http://remotesitename.dev',
+  'remote-host' => 'remotesitename.dev',
   'remote-user' => 'vagrant',
   'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
 );

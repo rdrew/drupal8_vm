@@ -1,6 +1,6 @@
 ---
 # Local Vagrant options.
-vagrant_hostname: remotesitename.local
+vagrant_hostname: remotesitename.dev
 vagrant_machine_name: remotesitename
 vagrant_ip: 192.168.88.22
 
